@@ -12,16 +12,22 @@ import { yellow, green, pink, blue } from '@material-ui/core/colors'
 const useStyles = makeStyles({
   avatar: {
     backgroundColor: (note) => {
-      if (note.category === 'work') {
+      if (note.category === 'Male') {
         return yellow[700]
       }
-      if (note.category === 'money') {
+      if (note.category === 'Female') {
         return green[500]
       }
-      if (note.category === 'todos') {
+      if (note.category === 'other') {
         return pink[500]
       }
       return blue[500]
+      if (note.category === 'Married'){
+        return yellow[700]
+      }
+      if (note.category === 'Unmarried'){
+        return yellow[700]
+      }
     },
   }
 })

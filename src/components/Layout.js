@@ -11,15 +11,15 @@ import { AddCircleOutlineOutlined, SubjectOutlined } from '@material-ui/icons'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import { format } from 'date-fns'
-import Avatar  from '@material-ui/core/Avatar'
+import Avatar from '@material-ui/core/Avatar'
 
-const drawerWidth = 240
+const drawerWidth = 180
 
 const useStyles = makeStyles((theme) => {
   return {
     page: {
       background: '#f9f9f9',
-      width: '100%',
+      width: '50%',
       padding: theme.spacing(3),
     },
     root: {
@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => {
       padding: theme.spacing(2),
     },
     appBar: {
-      width: `calc(100% - ${drawerWidth}px)`,
+      width: `calc(50% - ${drawerWidth}px)`,
       marginLeft: drawerWidth,
     },
     date: {
@@ -58,12 +58,12 @@ export default function Layout({ children }) {
 
   const menuItems = [
     { 
-      text: 'My Notes', 
+      text: 'Patient', 
       icon: <SubjectOutlined color="secondary" />, 
       path: '/' 
     },
     { 
-      text: 'Create Note', 
+      text: 'Patient Details', 
       icon: <AddCircleOutlineOutlined color="secondary" />, 
       path: '/create' 
     },
@@ -82,7 +82,7 @@ export default function Layout({ children }) {
           <Typography className={classes.date}>
             Today is the {format(new Date(), 'do MMMM Y')}
           </Typography>
-          <Typography>Mario</Typography>
+          <Typography>Hospital</Typography>
           <Avatar className={classes.avatar} src="/mario-av.png" />
         </Toolbar>
       </AppBar>
@@ -96,7 +96,7 @@ export default function Layout({ children }) {
       >
         <div>
           <Typography variant="h5" className={classes.title}>
-            Notes
+            H
           </Typography>
         </div>
 
@@ -107,7 +107,7 @@ export default function Layout({ children }) {
               button 
               key={item.text} 
               onClick={() => history.push(item.path)}
-              className={location.pathname === item.path ? classes.active : null}
+              className={location.pathname == item.path ? classes.active : null}
             >
               <ListItemIcon>{item.icon}</ListItemIcon>
               <ListItemText primary={item.text} />
